@@ -1,18 +1,20 @@
 #include <iostream>
 #include <vector>
+#include <unordered_set>
 using namespace std;
 
 int main() {
     cin.tie(0)->ios::sync_with_stdio(0);
-    int n;
+    int n, a, ans = 0;
     cin >> n;
-    vector<int> ans(2 * n + 1, 0);
+    unordered_set<int> st;
     for (int i = 0; i < n; i++) {
-        int a;
         cin >> a;
-        ans[2 * i + 1] = ans[a - 1] + 1;
-        ans[2 * i + 2] = ans[a - 1] + 1;
+        st.insert(a);
     }
-    for (auto i : ans) cout << i << "\n";
+    while(n >= 0){
+        n -= !st.count(++ans) + 1;
+    }
+    cout << ans - 1 << "\n";
     return 0;
 }
