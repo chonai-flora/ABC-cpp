@@ -1,7 +1,8 @@
 import glob
 header = ["A", "B", "C", "D", "E", "F", "G", "H/Ex"]
 
-with open("answer_status.md", "w") as f:
+with open("README.md", "w") as f:
+    f.write("# ABC-cpp\n\n")
     f.write("| |" + "|".join(header) + "|\n")
     f.write("|---" * 9 + "|\n")
 
