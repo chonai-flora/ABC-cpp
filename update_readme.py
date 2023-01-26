@@ -20,10 +20,9 @@ with open("README.md", "w") as f:
             marks[idx] = ":heavy_check_mark:"
 
         body = [path.upper()]
-        for idx, _ in enumerate(marks):
+        for idx, mark in enumerate(marks):
             link = "[{0}]({1}{2}/tasks/{3}_{4})".format(
-                marks[idx], base_url, path, path, problems[idx]
-            )
+                mark, base_url, path, path, problems[idx])
             body.append(link)        
         
         f.write("|" + "|".join(body) + "|\n")
